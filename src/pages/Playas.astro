@@ -5,12 +5,12 @@ import Seccion from "../components/seccion.astro";
 import Image from "astro/components/Image.astro";
 import Lapausa2 from "../assets/Lapausa2.png";
 import walter1 from "../assets/walter1.jpg";
-
+import tequilabeach from "../assets/tequilabeach.jpg";
 
 const seccionitems = [
     {
         title: "Paradores",
-        body: "Reta cuenta con variados paradores a lo largo de sus extensas playas. En ellos, se pueden disfrutar de bebidas, comidas y servicios de playa (carpas, wi-fi, juegos)."
+        body: "Reta cuenta con variados paradores a lo largo de sus extensas playas. En ellos, se pueden disfrutar de bebidas, comidas y servicios de playa (carpas, wi-fi, juegos). Los balnearios vecinos mas cercanos son: hacia al norte Claromecó y hacia la zona sur limita con Marisol."
     }
 ];
 ---
@@ -46,6 +46,17 @@ const seccionitems = [
             </div>
             <p>Calle 50 y el mar</p>
         </div>
+
+        <div class="link-card">
+            <div class="image-container">
+                <Image src={tequilabeach} alt="Disfrutá las variadas actividades que ofrece Reta" class="card-img" />
+                <div class="overlay">
+                    <h3>Tequila Beach</h3>
+                </div>
+            </div>
+            <p>Calle 46 y el mar</p>
+        </div>
+
     </div>
 </Layout>
 

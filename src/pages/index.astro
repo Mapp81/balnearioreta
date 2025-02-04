@@ -12,7 +12,7 @@ const seccionitems = [
 	title: "Datos Utiles",
 	imgSrc: "/datosutiles.gif",
 	imgAlt:"Datos Utiles",
-	body: "Cuando visites Reta, recordá que este tranquilo paraíso no cuenta con entidades bancarias, cajeros automáticos ni estaciones de servicio. La estación de servicio más cercana se encuentra en Tres Arroyos, a unos 50 km. Además del efectivo, cuentan con sistemas de pago alternativos. Preparate para disfrutar de la desconexión total en este hermoso destino natural"
+	body: "Cuando visites Reta, recordá que este tranquilo paraíso no cuenta con entidades bancarias, cajeros automáticos ni estaciones de servicio. Los servicios más cercanos se encuentran en Copetonas, a unos 27 km. Además del efectivo, en Reta, cuentan con sistemas de pago alternativos. Preparate para disfrutar de la desconexión total en este hermoso destino natural"
 }
 ]
 
@@ -21,7 +21,8 @@ const lugaritems =[
 		title: "¿Cómo llegar?",
 		imgSrc: "/mapagif.gif",
 		imgAlt: "Mapa de ubicación de Reta",
-		body: "Ubicada en la costa de la provincia de Buenos Aires, Reta es un tranquilo balneario que combina la serenidad de un destino poco explorado con la belleza de la naturaleza en su estado más puro. A solo 80 kilómetros de Tres Arroyos, este rincón escondido es perfecto para aquellos que buscan playas amplias, atardeceres inolvidables, y un espacio donde el tiempo parece detenerse."
+		body: "Ubicada en la costa de la provincia de Buenos Aires, Reta es un tranquilo balneario que combina la serenidad de un destino poco explorado con la belleza de la naturaleza en su estado más puro. A solo 80 kilómetros de Tres Arroyos, este rincón escondido es perfecto para aquellos que buscan playas amplias, atardeceres inolvidables, y un espacio donde el tiempo parece detenerse.",
+		link: "/Ubicacion" // Agregamos la URL de destino
 	}
 ]
 ;
@@ -38,6 +39,7 @@ const lugaritems =[
 				imgSrc={item.imgSrc}
 				imgAlt={item.imgAlt}
 				body={item.body}
+				link={item.link} // Pasamos el nuevo prop
 				/>
 			))}
 	</div>		

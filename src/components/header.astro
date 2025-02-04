@@ -22,7 +22,7 @@ import logoreta3 from "/AnitaSecretCode/AnitaSecretCode/NuevaReta/nuevoreta/src/
     </label>
     
     <ul class="nav__menu">
-      <li><a href="#Galeria">Galeria</a></li>
+      <li><a href="/#Galeria">Galeria</a></li>
       <li><a href="/Ubicacion">Ubicación</a></li>
       <li><a href="/Contacto">Contacto</a></li>
     </ul>
@@ -153,3 +153,15 @@ import logoreta3 from "/AnitaSecretCode/AnitaSecretCode/NuevaReta/nuevoreta/src/
       }
     }
   </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const navCheckbox = document.getElementById("nav__checkbox") as HTMLInputElement;
+
+    window.addEventListener("scroll", () => {
+      if (navCheckbox && (navCheckbox as HTMLInputElement).checked) {
+        navCheckbox.checked = false;
+      }
+    });
+  });
+</script>

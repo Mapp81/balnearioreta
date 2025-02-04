@@ -2,7 +2,7 @@
 import '@fontsource/arimo';
 import '@fontsource/roboto';
 
-const { imgSrc, imgAlt, title, body } = Astro.props; // Props individuales para el componente
+const { imgSrc, imgAlt, title, body, link } = Astro.props; // Props individuales para el componente
 ---
 
 <style>
@@ -46,8 +46,11 @@ p {
 </style>
 
   <div class="datos">
-    <h2>{title}</h2>
-    <img src={imgSrc} alt={imgAlt} class="w-20"/>
-    <p>{body}</p>
+    {link ? (
+      <a href={link} rel="noopener noreferrer"><img src={imgSrc} alt={imgAlt} class="w-20"/></a>) : (
+      <img src={imgSrc} alt={imgAlt} class="w-20"/>)}
+      <h2>{title}</h2>
+      
+      <p>{body}</p>
   </div>
 

@@ -17,7 +17,10 @@ const seccionubi = [
 <Layout title="Ubicación" description="¿Cómo llegar?">
   <div class="container">
     {seccionubi.map((item) => <Seccion {...item} />)}
-
+    <div class="ubicacion">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12421.256098428712!2d-60.34745677406464!3d-38.89393369681414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x958dbd9685c1de25%3A0x371b145d93305adf!2sReta%2C%20Buenos%20Aires%20Province!5e0!3m2!1sen!2sar!4v1738676669714!5m2!1sen!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    
     <div class="transporte">
       <h2>Transportes</h2>
       <div class="item1">
@@ -37,6 +40,8 @@ const seccionubi = [
         </p>
       </div>
 
+      
+  
       <div class="plano">
         <div class="item2">
           <Image src={Planocopy} alt="Plano ciudad de Reta" id="myImage" />
@@ -78,6 +83,29 @@ const seccionubi = [
             font-family: "arimo", sans-serif;
         }
 
+        .ubicacion{
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            
+        }
+
+        iframe{
+          display: flex;
+            margin-top: 4%;
+            margin-bottom: 4%;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            padding: 1%;
+            
+        }
+
+        iframe:hover{
+          box-shadow: 0 4px 8px var(--gris); /* Sombra suave */
+        }
+      
         .plano{
             display: flex;
             justify-content: center;
