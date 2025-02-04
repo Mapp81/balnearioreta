@@ -1,0 +1,111 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Seccion from "../components/seccion.astro";
+
+const seccion=[
+    {title:"¿Listo/a para planear tu escape a Reta?",
+     body:"Queremos ayudarte a descubrir el paraíso que mereces. Si tienes preguntas, necesitas recomendaciones o simplemente quieres saber más sobre todo lo que Reta tiene para ofrecer, no dudes en escribirnos. Cada mensaje cuenta para acercarte a esa desconexión perfecta que estás buscando."   
+    }
+]
+
+---
+
+<Layout title="Contacto" description="Comunicate con nosotros">
+    <seccion class="seccion">
+        <div class="seccion">
+        {seccion.map((item) => (
+        <Seccion title={item.title} body={item.body} />
+        ))}
+        </div>
+</seccion>
+
+
+
+</Layout>
+
+<style>
+
+
+/* Estilo General */
+.seccion {
+ max-width: 100%;
+ height: auto;
+ margin-bottom: 4%;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contact-header h2 {
+  font-size: 2rem;
+  color: #4a4a4a;
+  margin-bottom: 0.5rem;
+}
+
+.contact-header p {
+  font-size: 1.1rem;
+  color: #6a6a6a;
+}
+
+/* Estilo del Formulario */
+.contact-form {
+  background-color: #ffffff;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 4%;
+  font-family: "roboto", sans-serif;
+  letter-spacing: 2px;
+  font-weight: 300;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #4a4a4a;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f7f7f7;
+  color: #333;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #7da5ff;
+  box-shadow: 0 0 5px rgba(125, 165, 255, 0.5);
+  outline: none;
+}
+
+.contact-form button {
+  display: inline-block;
+  background-color: #4a90e2;
+  color: #ffffff;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #357ac9;
+}
+
+</style>
+

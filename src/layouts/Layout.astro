@@ -1,0 +1,51 @@
+---
+import Header from "../components/header.astro";
+import Footer from "../components/Footer.astro";
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>Balneario Reta</title>
+	</head>
+	
+	<body>
+		<Header />
+		<slot />
+		<Footer />
+	</body>
+	
+</html>
+
+<style>
+body {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 40px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    padding: 0 80px;
+  }
+}
+
+:root {
+		--base: #E3E3E3;
+		--gris: #767676;
+		--primario: #262221;
+		--visitado: #E33F00;
+		background-color: rgba(255, 255, 255, 0.9);
+	}
+
+</style>

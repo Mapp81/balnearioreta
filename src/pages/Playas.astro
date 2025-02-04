@@ -1,0 +1,128 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Seccion from "../components/seccion.astro";
+
+const seccionitems = [
+    {
+        title: "Paradores",
+        body: "Reta cuenta con variados paradores a lo largo de sus extensas playas. En ellos, se pueden disfrutar de bebidas, comidas y servicios de playa (carpas, wi-fi, juegos)."
+    }
+];
+---
+
+<Layout>
+    <div class="container-seccion">
+        <div class="seccion">
+            {seccionitems.map((item) => (
+                <Seccion 
+                    title={item.title}
+                    body={item.body}
+                />
+            ))}
+        </div>
+    </div>
+
+    <div class="container-link-card">
+        <div class="link-card">
+            <img src="../src/assets/Lapausa2.png" alt="Parador de mar" class="card-img">
+            <div class="overlay">
+                <h3>La Pausa</h3>
+            </div>
+            <p>Calle 48 (Principal) y el mar</p>
+        </div>
+
+        <div class="link-card">
+            <img src="../src/assets/walter1.jpg" alt="Disfrutá las variadas actividades que ofrece Reta" class="card-img">
+            <div class="overlay">
+                <h3>Walter’s</h3>
+            </div>
+            <p>Calle 50 y el mar</p>
+        </div>
+    </div>
+</Layout>
+
+<style>
+/* ✅ Contenedor principal */
+.container-seccion {
+    width: 100%;
+    height: auto;
+}
+
+.seccion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin-bottom: 4%;
+}
+
+/* ✅ Contenedor de las cards */
+.container-link-card {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 8%;
+}
+
+/* ✅ Estilos de la card */
+.link-card {
+    position: relative;
+    width: 350px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 4px 8px var(--base);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.link-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px var(--gris);
+}
+
+/* ✅ Imagen dentro de la card */
+.card-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+/* ✅ Texto debajo de la imagen */
+p {
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    font-family: "roboto", sans-serif;
+  letter-spacing: 5px;
+  font-weight: 300;
+}
+
+/* ✅ Overlay (efecto al pasar el mouse) */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    font-family: "roboto", sans-serif;
+  letter-spacing: 5px;
+  font-weight: 300;
+}
+
+/* 🎯 Overlay aparece al hacer hover */
+.link-card:hover .overlay {
+    opacity: 1;
+}
+</style>

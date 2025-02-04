@@ -1,0 +1,90 @@
+---
+import {Image} from "astro:assets";
+import mapagif from "../assets/mapagif.gif"
+---
+
+<div class="container" aria-labelledby="mapa-iframe-heading" class="sr-only" >
+
+    <div class="frame" >
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12421.226045360308!2d-60.346001142709554!3d-38.89410553529713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x958dbd9685c1de25%3A0x371b145d93305adf!2sReta%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1726520429015!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+
+<style>
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+    .container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 100%;
+        align-content: center;
+        align-items: center;
+        height: auto;
+        align-content: center;
+        flex-wrap: wrap;
+    }
+
+    .frame{
+        width: 30%;
+        height: 30%;
+        border-radius: 8px;
+        overflow: hidden;
+       border-radius: 8px;
+       display: flex;
+         justify-content: center;
+            align-items: center;
+
+    }
+
+    .frame iframe{
+        border-radius: 8px;
+        box-shadow: 0 4px 8px var(--base); /* Sombra suave */
+    }
+    
+    . iframe:hover{
+        box-shadow: 0 4px 8px var(--gris); /* Sombra suave */
+    }
+
+    a{
+        background-color: white;
+        z-index: 1;
+        border-radius: 8px;
+        box-shadow: none;
+        border-color: none;
+        border: none;
+        font-family: "roboto";
+        font-weight: 300;
+        font-size: 16px;
+        color: var(--primario);  
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */;
+        text-decoration: none;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-left: 32px;
+        padding-right: 32px;
+        
+          }
+    
+    a:visited a:focus{
+        text-decoration: none;
+        color: var(--visitado);  /* Mantén el color original */
+
+}
+
+    a:hover{
+        background-color: var(--base);
+       
+    }  
+
+    
+</style>

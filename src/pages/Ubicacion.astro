@@ -1,0 +1,202 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Seccion from "../components/seccion.astro";
+import { Image } from "astro:assets";
+import Planocopy from "../assets/planocopy.jpg";
+import '@fontsource/arimo';
+import '@fontsource/roboto';
+
+const seccionubi = [
+  {
+    title: "¿Cómo llegar?",
+    body: "Reta, un refugio de tranquilidad en la costa bonaerense, combina paisajes únicos con una desconexión perfecta de la rutina, y llegar hasta aquí es parte de la experiencia. Ya sea que viajes en auto o bus. A continuación, te explicamos en detalle las diferentes opciones para llegar a este paraíso escondido, junto con algunos consejos útiles para planificar tu viaje.",
+  },
+];
+---
+
+<Layout title="Ubicación" description="¿Cómo llegar?">
+  <div class="container">
+    {seccionubi.map((item) => <Seccion {...item} />)}
+
+    <div class="transporte">
+      <h2>Transportes</h2>
+      <div class="item1">
+        <p>
+          En transporte particular desde cualquier punto del país tomando la
+          ruta 3, acceso ruta provincial 72
+        </p>
+        <p>
+          Una sola empresa <b>Reta-Tur</b> ofrece servicio directo al pueblo. Parte
+          desde Buenos Aires: San Martín, Morón, San Justo. El viaje dura aproximadamente
+          8 horas por RN 3 empalme RP 72.
+          <br/>
+          *** Otro modo de llegar es desde Tres Arroyos con un <b
+            >colectivo zonal llamado 'La Dorreguense'</b
+          >. Tiene horarios fijos que se pueden consultar. Además funcionan
+          remises desde localidades cercanas (Copetonas, Oriente, Claromecó).
+        </p>
+      </div>
+
+      <div class="plano">
+        <div class="item2">
+          <Image src={Planocopy} alt="Plano ciudad de Reta" id="myImage" />
+          <!-- Modal para mostrar la imagen a pantalla completa -->
+          <div id="myModal" class="modal">
+            <span id="closeModal" class="close">&times;</span>
+            <Image id="modalImage" src={Planocopy} alt="Imagen ampliada" />
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+</Layout>
+
+
+      <style>
+        .container {
+          max-width: 100%;
+          height: auto;
+          color: var(--primario);
+        }
+
+        h2{
+            font-size: 24px; /* Tamaño del texto responsivo */
+            align-content: center;
+            font-family: "roboto", sans-serif;
+            letter-spacing: 2px;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 32px;
+            letter-spacing: 5px;
+            margin-top: 16px;
+            margin-left: 2px;
+            margin-right: 2px;
+            font-family: "arimo", sans-serif;
+        }
+
+        .plano{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+        }
+
+        img {
+            display: flex;
+            margin-top: 8%;
+            margin-bottom: 8%;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            padding: 2% 4% 2% 4%;
+
+}
+
+        .item2 img {
+          cursor: pointer; /* Cursor de mano para indicar que se puede hacer clic */
+          transition: transform 0.3s ease; /* Transición suave */
+          height: auto;
+          max-width: 50vw;
+          border-radius: 8px;
+        }
+
+        .item2 img:hover {
+          box-shadow: 0 4px 8px var(--gris); /* Sombra suave */
+        }
+
+        /* Estilos para el modal */
+        .modal {
+          display: none; /* Escondido por defecto */
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(
+            0,
+            0,
+            0,
+            0.9
+          ); /* Fondo oscuro semitransparente */
+          justify-content: center;
+          align-items: center;
+          z-index: 1000;
+        }
+
+        .modal img {
+          max-width: 80%;
+          max-height: 80%;
+          object-fit: contain; /* Asegura que la imagen esté completamente visible */
+          transition: transform 0.3s ease; /* Transición suave para el zoom */
+        }
+
+        /* Botón para cerrar */
+        .close {
+          position: absolute;
+          top: 10px;
+          right: 20px;
+          color: white;
+          font-size: 30px;
+          cursor: pointer;
+        }
+
+        /* Agregar estilo para zoom con clases específicas */
+        .zoom-in {
+          transform: scale(1.5); /* Zoom in (agrandar) */
+          transition: transform 0.3s ease; /* Transición suave */
+        }
+
+        .zoom-out {
+          transform: scale(1); /* Volver al tamaño normal */
+          transition: transform 0.3s ease; /* Transición suave */
+        }
+      </style>
+
+      <script>
+        // Obtener los elementos necesarios
+        const img = document.getElementById("myImage") as HTMLImageElement;
+
+        const modal = document.getElementById("myModal");
+        const modalImage = document.getElementById(
+          "modalImage"
+        ) as HTMLImageElement;
+        const closeModal = document.getElementById("closeModal");
+
+        let isZoomed = false;
+
+        // Al hacer clic en la imagen, mostrarla en el modal
+        img.onclick = function () {
+          if (modal) {
+            modal.style.display = "flex"; // Mostrar el modal
+            modalImage.src = img.src; // Asignar la imagen al modal
+          }
+        };
+
+        // Al hacer clic en la 'X', cerrar el modal
+        if (closeModal) {
+          closeModal.onclick = function () {
+            if (modal) {
+              modal.style.display = "none"; // Ocultar el modal
+            }
+            modalImage.classList.remove("zoom-in", "zoom-out"); // Resetear el zoom
+            isZoomed = false;
+          };
+        }
+
+        // Al hacer clic en la imagen en el modal, hacer zoom in/zoom out
+        modalImage.onclick = function () {
+          if (!isZoomed) {
+            modalImage.classList.add("zoom-in"); // Aplicar zoom-in
+            isZoomed = true;
+          } else {
+            modalImage.classList.remove("zoom-in"); // Remover zoom-in
+            modalImage.classList.add("zoom-out"); // Aplicar zoom-out
+            isZoomed = false;
+          }
+        };
+      </script>
+    
+

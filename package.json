@@ -1,0 +1,25 @@
+{
+  "name": "nuevoreta",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^5.1.4",
+    "@fontsource/arimo": "^5.1.1",
+    "@fontsource/roboto": "^5.1.1",
+    "astro": "^5.1.7",
+    "solid-js": "^1.9.4",
+    "tailwindcss": "^3.4.17"
+  },
+  "description": "## Descripción Este sitio web está diseñado para promover el turismo en el encantador pueblo de **Reta**, destacando su tranquilidad, conexión con la naturaleza y las actividades que ofrece. Inspirado por el amor hacia este paraíso, el objetivo principal es proporcionar información útil y visualmente atractiva para quienes buscan desconectarse y explorar un destino único.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+

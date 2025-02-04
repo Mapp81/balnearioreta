@@ -1,0 +1,64 @@
+---
+import { Image } from "astro:assets";
+import datosutiles from "../assets/datosutiles.gif";
+---
+<style>
+  .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+        /* Estilo para el widget */
+        .container{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          height: auto;
+          max-width: 100%;
+          align-content: center;
+          flex-wrap: wrap;
+          margin-top: 12%;
+          margin-bottom: 4%;
+
+        }
+        .weatherwidget-io {
+          display: block;
+          width: 100%; /* Asegurarse de que ocupe todo el ancho del contenedor */
+          padding: 24px; /* Espacio interno */
+          border-radius: 8px; /* Bordes redondeados (opcional) */
+          background-color: #ffffff; /* Color de fondo (opcional) */
+          box-shadow: 0 4px 8px var(--base); /* Sombra suave */
+        }
+  
+        /* Al pasar el cursor, aumentar la sombra */
+        .weatherwidget-io:hover {
+            box-shadow: 0 4px 8px var(--gris); /* Sombra suave */
+        }
+</style>
+
+<section class="container" aria-labelledby="tiempo-heading">
+  <h2 id="tiempo-heading" class="sr-only">Información del Tiempo</h2>
+        <a class="weatherwidget-io" href="https://forecast7.com/es/n38d89n60d35/reta/" data-label_1="RETA" data-label_2="WEATHER" data-theme="original" data-basecolor="#ffffff" data-textcolor="#000000" aria-label="Pronóstico del tiempo para Reta" >Tiempo en Reta</a>
+        
+        
+</section>
+   
+<script is:inline>
+      !function(d,s,id){
+        var js,fjs=d.getElementsByTagName(s)[0];
+        if(!d.getElementById(id)){
+          js=d.createElement(s);
+          js.id=id;
+          js.src='https://weatherwidget.io/js/widget.min.js';
+          fjs.parentNode.insertBefore(js,fjs);
+        }
+      }(document,'script','weatherwidget-io-js');
+    </script>
+
+

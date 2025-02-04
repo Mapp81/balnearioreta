@@ -1,0 +1,155 @@
+---
+import Image from "astro/components/Image.astro";
+import image1 from '../assets/image1.jpg';
+import imagen3 from '../assets/imagen3.jpg';
+import playa1 from '../assets/playa1.jpeg';
+import playa3 from '../assets/playa3.jpeg';
+import retaportal2 from '../assets/retaportal2.jpg';
+---
+
+<section id="Galeria" aria-labelledby="galeria-heading">
+  <h2 id="galeria-heading" class="sr-only">Galeria</h2>  
+  <div class="carrusel">
+    <div class="grande">
+      <Image src={image1} alt="Vista de la Albúfera con agua cristalina y vegetación alrededor" class="img" title="Albúfera"/>
+     <Image src={imagen3} alt="Playa de Reta con arena dorada y olas suaves" class="img" title="Playas extensas"/>
+      <Image src={retaportal2} alt="Entrada al portal de Reta con un cartel de bienvenida" class="img" title="Entrada al pueblo"/>
+      <Image src={playa1} alt="Mar" class="img" title="Mar eterno"/>
+      <Image src={playa3} alt="A" class="img" title="Médanos con sombra"/>
+    </div>
+    <ul class="puntos">
+      <li class="punto activo"></li>
+      <li class="punto"></li>
+      <li class="punto"></li>
+      <li class="punto"></li>
+      <li class="punto"></li>
+    </ul>
+  </div>  
+  
+</section>
+
+
+<style>
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: auto;
+  margin-bottom: 4%;
+}
+
+.carrusel{
+  overflow: hidden;
+  
+  width: 100%;
+  height: auto;
+  padding: 2em;
+  border-radius: 8px;
+}
+.carrusel .grande{
+  width: 450%;
+  max-height: 60vh;
+  border-radius: 8px;
+padding: 1em;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  transition: all .5s ease;
+  transform: translateX(0%);
+}
+.carrusel .img{
+  width: calc(20% - 4em);
+  height: 50vh;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.carrusel .puntos{
+  width: 100%;
+  margin: 1em 0 0 ;
+  padding: .4em;
+  
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.carrusel .punto{
+  width: 1em;
+  height: 1em;
+  margin: 1em 1em 0;
+  border-radius: 100%;
+  box-shadow: 0 4px 8px var(--gris); /* Sombra suave */
+  cursor: pointer;
+}
+
+.carrusel .punto.activo{
+  background-color: var(--base);
+}
+
+.img:hover{
+  transition: 0.5s ease;
+  transform: scale3d(1.1, 1.1, 1.1); /* Escala 3D */
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .carrusel .img{
+    width: calc(20%);
+    height: 50vh;
+  }
+  .carrusel .grande{
+    width: 500%;
+    max-height: 50vh;
+    padding: 1em;
+  }
+
+}
+
+</style>
+
+<script>
+  const grande = document.querySelector('.grande') as HTMLElement;
+  const punto= document.querySelectorAll('.punto') as NodeListOf<HTMLElement>;
+
+  punto.forEach((cadaPunto , i)=>{
+    punto[i].addEventListener('click',()=>{
+      let posicion =i;
+      //posicion es 0 transformX es 0
+      //posicion es 1 transformX es -(100/5)
+      //operacion=posicion * -(100/5)
+      let operacion = posicion * -20;
+      
+    // Verifica que 'grande' no sea null
+    if (grande) {
+          grande.style.transform = `translateX(${operacion}%)`;
+        } else {
+          console.error('El elemento "grande" no se encontró.');
+        }
+
+      punto.forEach((cadaPunto, i)=>{
+        punto[i].classList.remove('activo')
+      })
+      punto[i].classList.add('activo')
+
+    })
+  })
+</script>
+

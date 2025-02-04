@@ -1,0 +1,53 @@
+---
+import '@fontsource/arimo';
+import '@fontsource/roboto';
+
+const { imgSrc, imgAlt, title, body } = Astro.props; // Props individuales para el componente
+---
+
+<style>
+
+.datos{
+  font-size: 24px; /* Tamaño del texto responsivo */
+  align-content: center;
+  font-family: "roboto", sans-serif;
+  letter-spacing: 5px;
+  font-weight: 300;
+  max-width: 100%;
+  line-height: 1.5;
+  height: auto;
+  color: var(--primario);
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-bottom: 4%;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  padding: 8px;
+    } 
+
+
+img {
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+
+p {
+  font-size: 16px;
+  line-height: 32px;
+  letter-spacing: 5px;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  margin-left: 2px;
+  margin-right: 2px;
+  font-family: "arimo", sans-serif;
+}
+
+</style>
+
+  <div class="datos">
+    <h2>{title}</h2>
+    <img src={imgSrc} alt={imgAlt} class="w-20"/>
+    <p>{body}</p>
+  </div>
+
