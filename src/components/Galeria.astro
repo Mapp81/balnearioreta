@@ -127,29 +127,57 @@ padding: 1em;
 
 <script>
   const grande = document.querySelector('.grande') as HTMLElement;
-  const punto= document.querySelectorAll('.punto') as NodeListOf<HTMLElement>;
+  const puntos = document.querySelectorAll('.punto') as NodeListOf<HTMLElement>;
 
-  punto.forEach((cadaPunto , i)=>{
-    punto[i].addEventListener('click',()=>{
-      let posicion =i;
-      //posicion es 0 transformX es 0
-      //posicion es 1 transformX es -(100/5)
-      //operacion=posicion * -(100/5)
-      let operacion = posicion * -20;
-      
-    // Verifica que 'grande' no sea null
+  let posicionActual = 0;
+  const totalSlides = puntos.length;
+  let startX = 0;
+  let moveX = 0;
+
+  // Función para mover el carrusel
+  function moverCarrusel(index: number) {
+    let operacion = index * -20; // 20% por imagen
     if (grande) {
-          grande.style.transform = `translateX(${operacion}%)`;
-        } else {
-          console.error('El elemento "grande" no se encontró.');
-        }
+      grande.style.transform = `translateX(${operacion}%)`;
+    }
 
-      punto.forEach((cadaPunto, i)=>{
-        punto[i].classList.remove('activo')
-      })
-      punto[i].classList.add('activo')
+    puntos.forEach(punto => punto.classList.remove('activo'));
+    puntos[index].classList.add('activo');
+  }
 
-    })
-  })
+  // Evento de clic en los puntos
+  puntos.forEach((punto, i) => {
+    punto.addEventListener('click', () => {
+      posicionActual = i;
+      moverCarrusel(posicionActual);
+    });
+  });
+
+  // **Eventos táctiles para Swipe**
+  grande.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX; // Guarda la posición inicial del toque
+  });
+
+  grande.addEventListener('touchmove', (e) => {
+    moveX = e.touches[0].clientX - startX;
+  });
+
+  grande.addEventListener('touchend', () => {
+    if (moveX > 50) {
+      // Swipe a la derecha (anterior)
+      if (posicionActual > 0) {
+        posicionActual--;
+        moverCarrusel(posicionActual);
+      }
+    } else if (moveX < -50) {
+      // Swipe a la izquierda (siguiente)
+      if (posicionActual < totalSlides - 1) {
+        posicionActual++;
+        moverCarrusel(posicionActual);
+      }
+    }
+    moveX = 0; // Restablece el valor
+  });
 </script>
+
 
