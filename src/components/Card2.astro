@@ -1,10 +1,21 @@
+---
+import Image from "astro/components/Image.astro";
+
+import Lapausa2 from "../assets/Lapausa2.png";
+import fotoavifterrazas from "../assets/fotoavifterrazas.jpg";
+import pescadorescorvina from "../assets/pescadorescorvina.jpg";
+
+---
+
 <div class="container-link-card">
   <div class="link-card">
     <a href="/Playas">
       <div class="card-content">
-        <img src="../src/assets/Lapausa2.png" alt="Parador de mar" class="card-img">
-        <div class="overlay">
-          <h3>Playas</h3>
+        <div class="image-container">
+          <Image src={Lapausa2} alt="Parador de mar" class="card-img" />
+          <div class="overlay">
+            <h3>Playas</h3>
+          </div>
         </div>
       </div>
     </a>
@@ -13,9 +24,11 @@
   <div class="link-card">
     <a href="/Alojamiento">
       <div class="card-content">
-        <img src="../src/assets/fotoavifterrazas.jpg" alt="Lugares para alojarse en Reta" class="card-img">
-        <div class="overlay">
-          <h3>Alojamiento</h3>
+        <div class="image-container">
+          <Image src={fotoavifterrazas} alt="Lugares para alojarse en Reta" class="card-img" />
+          <div class="overlay">
+            <h3>Alojamiento</h3>
+          </div>
         </div>
       </div>
     </a>
@@ -24,9 +37,11 @@
   <div class="link-card">
     <a href="/Actividades">
       <div class="card-content">
-        <img src="../src/assets/pescadorescorvina.jpg" alt="Disfrutá las variadas actividades que ofrece Reta" class="card-img">
-        <div class="overlay">
-          <h3>Actividades</h3>
+        <div class="image-container">
+          <Image src={pescadorescorvina} alt="Disfrutá las variadas actividades que ofrece Reta" class="card-img" />
+          <div class="overlay">
+            <h3>Actividades</h3>
+          </div>
         </div>
       </div>
     </a>
@@ -52,7 +67,7 @@
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* 🎯 SOLUCIÓN: Evita el temblor al hacer hover */
+/* 🎯 Evita el temblor al hacer hover */
 .link-card:hover {
   transform: scale(1.02);
   box-shadow: 0 6px 12px var(--gris);
@@ -70,6 +85,13 @@
   position: relative;
   width: 300px;
   height: 350px;
+}
+
+/* ✅ Nuevo contenedor para la imagen */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 /* ✅ Imagen dentro de la card */
@@ -101,7 +123,7 @@
 }
 
 /* 🎯 Overlay aparece al hacer hover */
-.link-card:hover .overlay {
+.image-container:hover .overlay {
   opacity: 1;
 }
 </style>

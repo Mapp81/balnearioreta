@@ -1,4 +1,10 @@
 ---
+import Image from 'astro/components/Image.astro';
+import kitesurf from "../assets/kitesurf.jpg";
+import retaplaya from "../assets/retaplaya.jpg";
+import pescadorescorvina from "../assets/pescadorescorvina.jpg";
+import cuevadeltigre from "../assets/cuevadeltigre.png";
+import flamencos from "../assets/flamencos.jpg";
 import Layout from '../layouts/Layout.astro';
 import '@fontsource/arimo';
 import '@fontsource/roboto';
@@ -7,31 +13,31 @@ const carditems = [
 {
     title: "Actividades Acuáticas",
     body: "Las extensas playas de Reta son ideales para los aficionados al surf y al kitesurf. Con olas perfectas y vientos constantes, este destino es un paraíso para quienes buscan adrenalina y aventura en el mar.",
-    imgSrc: "../src/assets/kitesurf.jpg",
+    imgSrc: kitesurf,
     imgAlt: "Kitesurf, Surf, Windsurf, Kayak",
   },
   {
     title: "Paseos",
     body: "Explorá la belleza natural a pie o en bici, con nuestras visitas guiadas bonaerenses tanto diurnas como nocturnas. Durante el día, disfrutá de los paisajes de costa bonaerense, combinados con la gran variedad de especies silvestres tanto de animales como de plantas. Por la noche, descubrí el cielo estrellado y la tranquilidad absoluta.",
-    imgSrc: "../src/assets/retaplaya.jpg",
+    imgSrc: retaplaya,
     imgAlt: "Paseos en bici, visitas nocturnas y diurnas",
   },
   {
     title: "Pesca",
     body: "Reta es un destino destacado para la pesca, tanto desde la orilla como embarcada. No te pierdas el Concurso de La Corvina Negra, uno de los eventos más importantes de la región, donde aficionados y expertos se reúnen para disfrutar de una jornada de pesca memorable con grandes premios.",
-    imgSrc: "../src/assets/pescadorescorvina.jpg",
+    imgSrc: pescadorescorvina,
     imgAlt: "Pesca",
   },
   {
     title: "Cueva del Tigre",
     body: "Este paraje, antiguamente fue utilizado como vado natural por las carretas, arreos y viajeros para atravesar el Rio Quequén Salado. A pocos metros de este paso, es posible observar varias cuevas y cascadas.En una de ellas, se refugió allá por el año 1860 Felipe Pascual Pacheco, un cuatrero conocido como 'El Tigre del Quequén', que según la creencia popular, aprovechaba la proximidad con este paso para asaltar a los viajeros que lo atravesaban. En 1875, fue capturado.",
-    imgSrc: "../src/assets/cuevadeltigre.png",
+    imgSrc: cuevadeltigre,
     imgAlt: "Cueva del Tigre",
   },
   {
     title: "Albúfera",
     body: "La albúfera de Reta es uno de los tesoros más impresionantes de la región. Una laguna costera que se forma por la mezcla del agua dulce y salada, creando un ecosistema único y biodiverso. Rodeada por médanos y vegetación autóctona, sumados las especies de aves (flamencos, garzas, cisnes de cuello negro, gaviotas) este paraje natural es ideal para quienes buscan conectarse con la naturaleza y, disfrutar de la paz y tranquilidad.",
-    imgSrc: "../src/assets/flamencos.jpg",
+    imgSrc: flamencos,
     imgAlt: "Albúfera",
   },
 ];
@@ -45,7 +51,7 @@ const carditems = [
       {carditems.map((item, index) => (
         <div class="card" tabindex="0">
           <div class="card-img-wrapper">
-          <img class="card-img" src={item.imgSrc} alt={item.imgAlt} /></div>
+          <Image class="card-img" src={item.imgSrc} alt={item.imgAlt} /></div>
           <div class="card-content">
             <h3 class="card-title">{item.title}</h3>
             <p class="card-body">{item.body}</p>
